@@ -116,7 +116,7 @@ pub fn execute(project_name: String) {
         std::process::exit(1);
     }
 
-    git_init(project_name.clone());
+    git_init(snake_case_name.clone());
 
     println!("Project {} created successfully!", project_name);
     println!("You can now run the project with:");
