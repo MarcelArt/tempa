@@ -35,6 +35,8 @@ fn main() {
                 std::process::exit(1);
             }
             println!("Node {} added successfully!", node_name);
+            println!("Don't forget to import the module in `lib.rs` file!");
+            println!("mod {};", utils::snake_case(node_name.clone()));
         }
         project_name => new_cmd::execute(project_name.to_string())
     }
