@@ -17,7 +17,7 @@ struct {name} {{
 }}
 
 #[godot_api]
-impl I{base} for RustExample {{
+impl I{base} for {name} {{
     fn init(base: Base<{base}>) -> Self {{
         Self {{
             base,

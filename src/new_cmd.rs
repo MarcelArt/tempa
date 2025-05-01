@@ -85,6 +85,19 @@ macos.release.arm64 =    "res://../target/release/lib{project_name}.dylib"
     Ok(())
 }
 
+fn git_init(project_name: String) {
+    let output = Command::new("git")
+        .arg("init")
+        .arg(&project_name)
+        .output()
+        .expect("Failed to execute command");
+
+    if !output.status.success() {
+        eprintln!("Error initializing git: {}", String::from_utf8_lossy(&output.stderr));
+        std::process::exit(1);
+    }
+}
+
 pub fn execute(project_name: String) {
     let snake_case_name = snake_case(project_name.clone());
 
@@ -102,6 +115,8 @@ pub fn execute(project_name: String) {
         rollback(snake_case_name.clone());
         std::process::exit(1);
     }
+
+    git_init(project_name.clone());
 
     println!("Project {} created successfully!", project_name);
     println!("You can now run the project with:");
