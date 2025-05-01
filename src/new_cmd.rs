@@ -1,11 +1,5 @@
 use std::{fs::{self}, process::Command};
-
-fn snake_case(text: String) -> String {
-    text.to_lowercase()
-        .replace(" ", "_")
-        .replace("-", "_")
-        .replace(".", "_")
-}
+use crate::utils::snake_case;
 
 fn clone_template(project_name: String) {
     let template_url = "https://github.com/MarcelArt/godot_rust_template.git";
