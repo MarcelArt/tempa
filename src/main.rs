@@ -3,6 +3,7 @@ use std::env;
 mod new_cmd;
 mod add_cmd;
 mod utils;
+mod dev_cmd;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -38,6 +39,7 @@ fn main() {
             println!("Don't forget to import the module in `lib.rs` file!");
             println!("mod {};", utils::snake_case(node_name.clone()));
         }
+        "dev" | "watch" => dev_cmd::execute().unwrap(),
         project_name => new_cmd::execute(project_name.to_string())
     }
 }

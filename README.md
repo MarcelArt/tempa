@@ -55,4 +55,8 @@ You can now run the project with:
 6. Don't forget to import the module in `lib.rs` file
 7. You are done, next step you need to modify the generated file
 
+#### Watch changes (Live Reload)
+1. Inside the root of Rust project run `tempa dev` or `tempa watch`
+2. Everytime there is a change in src folder tempa will automatically rebuild the Rust Library
+
 [^1]: Note it will create the directory in "snake_case"
